@@ -28,6 +28,6 @@ Microsoft Sentinel is the Security Event and Information Management (SIEM) tool 
 
 > NOTE - Files created in this project can be found in the directory of the section they have been created in
 
-### [Setting up Azure Resources](...)
+### [Setting up Azure Resources](./contents/azure_setup/)
 
 Setting up the resources used for this project within Azure
