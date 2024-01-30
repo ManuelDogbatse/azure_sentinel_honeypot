@@ -4,6 +4,8 @@
 
 [Setting up the virtual machine](#setting-up-the-virtual-machine)
 
+[Setting up the Log Analytics workspace](#setting-up-the-log-analytics-workspace)
+
 [Sections](#sections)
 
 ## Setting up the virtual machine
@@ -144,6 +146,16 @@ In the 'Data collection' tab, select 'All Events' and click 'Save' to save the c
 <p align="center">
 <img src="../../images/data_collection.png" alt="Data collection settings" height=340px>
 </p>
+
+After setting up the environment variables for the LAW, the next resource to setup is Microsoft Sentinel. This is only a brief setup because in order to create the workbook, the logs need to be generated from the honeypot server.
+
+Go to the top search bar and search 'sentinel', then select the 'Microsoft Sentinel' option.
+
+<p align="center">
+<img src="../../images/sentinel_search.png" alt="Microsoft Sentinel search" height=75px>
+</p>
+
+Then select 'Create' to create a new instance for the lab. Select 'law-honeypot' and click 'Add' to create an instance using the LAW you created earlier.
 
 ## Sections
 
