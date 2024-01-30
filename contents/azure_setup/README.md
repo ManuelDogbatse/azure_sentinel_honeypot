@@ -101,6 +101,50 @@ Delete the current inbound rule and add a new inbound rule. Change the 'Destinat
 
 Then click 'Add', then 'OK'. Then click 'Review + create'. Once the validation has passed for the virtual machine, click 'Create' to create the virtual machine.
 
+The VM will begin its deployment, and once it is done you will be able to SSH into it from your terminal.
+
+## Setting up the Log Analytics workspace
+
+After setting up the virtual machine, the next resource to setup is the log analytics workspace, which will collect the logs from the virtual machine.
+
+Go to the search bar and search 'Log Analytics workspaces' and select the 'Log Analytics workspaces' option.
+
+<p align="center">
+<img src="../../images/law_search.png" alt="Log Analytics workspaces search" height=70px>
+</p>
+
+In the Log Analytics workspaces page, click 'Create' to create a new LAW (log analytics workspace). Make sure you're using the correct subscription, and select the 'rg-honeypot' resource group. Name the workspace 'law-honeypot' and make sure the region matches the region you have used for the other resources thus far.
+
+<p align="center">
+<img src="../../images/law_details.png" alt="Log Analytics workspace details" height=270px>
+</p>
+
+Then click 'Review + Create'. Once the validation check has passed, then click 'Create'. Then the LAW will begin deployment.
+
+After the LAW has been created, search 'Defender' in the search bar at the top of the page and select 'Microsoft Defender for Cloud'.
+
+<p align="center">
+<img src="../../images/defender_for_cloud_search.png" alt="Microsoft Defender for Cloud search" height=45px>
+</p>
+
+Then go to the 'Environment settings' tab, and select the LAW.
+
+<p align="center">
+<img src="../../images/law_in_defender.png" alt="LAW in Defender for Cloud environment settings" height=150px>
+</p>
+
+In the 'Defender plans' tab, turn on the 'Servers' plan and click 'Save' to save the changes.
+
+<p align="center">
+<img src="../../images/defender_plans.png" alt="Defender plans settings" height=340px>
+</p>
+
+In the 'Data collection' tab, select 'All Events' and click 'Save' to save the changes.
+
+<p align="center">
+<img src="../../images/data_collection.png" alt="Data collection settings" height=340px>
+</p>
+
 ## Sections
 
 #### Home Page: [Azure Sentinel Honeypot](../../)
