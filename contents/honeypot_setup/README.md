@@ -129,4 +129,4 @@ The strings 'dGVzda==' and 'cGFzc3dvcmQ=' logged in the honeypot are the base 64
 
 #### Previous Section: [Setting up Azure Resources](../azure_setup/)
 
-#### Next Section: [...](...)
+#### Next Section: [Collecting logs from Virtual Machine](../log_collection/)

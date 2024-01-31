@@ -35,3 +35,7 @@ Setting up the resources used for this project within Azure
 ### [Setting up the Honeypot](./contents/honeypot_setup/)
 
 Setting up the honeypot within the virtual machine
+
+### [Collecting logs from Virtual Machine](./contents/log_collection)
+
+Adding the data collection endpoint and rules to collect the logs from the virtual machine and store them in the log analytics workspace
