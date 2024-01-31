@@ -31,3 +31,7 @@ Microsoft Sentinel is the Security Event and Information Management (SIEM) tool 
 ### [Setting up Azure Resources](./contents/azure_setup/)
 
 Setting up the resources used for this project within Azure
+
+### [Setting up the Honeypot](./contents/honeypot_setup/)
+
+Setting up the honeypot within the virtual machine
