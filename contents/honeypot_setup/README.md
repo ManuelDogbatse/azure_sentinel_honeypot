@@ -36,7 +36,7 @@ Then edit the ports.env file using nano or vim and change the SSH port to a diff
 <img src="../../images/ports.png" alt="Ports for virtual machine" height=100px>
 </p>
 
-After that, give the shell script executable privileges and run the script as sudo:
+After that, give the shell script executable permissions and run the script as sudo:
 
 ```bash
 chmod 755 setup_honeypot_server.sh
@@ -71,6 +71,57 @@ Then press 'Start scan' and stop it after one second. Replace the ports range to
 After completing the knock sequence, you will now be able to log into the virtual machine via SSH.
 
 ## Honeypot Container Setup
+
+The honeypot is ran in two Docker containers: one that hosts an SSH server using the paramiko library in Python, and generates custom logs for each login attempt, and the other container that reformats the custom logs and adds geolocation data for the IP address associated with each log.
+
+Clone the honeypot repository into the virtual machine and change directory to the honeypot directory:
+
+```bash
+git clone https://github.com/ManuelDogbatse/ssh_honeypot.git && cd ssh_honeypot
+```
+
+Then give the ```setup_environment.sh``` script executable permissions and run the script:
+
+```bash
+chmod 755 setup_environment.sh
+./setup_environment.sh
+```
+
+By default, the route will be '0.0.0.0' which will allow devices on the internet to connect to the honeypot. The default port is also 22, so that it is easier for attackers to find and attempt to log into the honeypot server. All that needs to be added is the API key from app.ipgeolocation.io, which is the website that will get the geolocation for the IP addresses of each attacker.
+
+To get the API key, go to [ipgeolocation's website](https://app.ipgeolocation.io) and sign up, or log in if you have already made an account. Then on the dashboard, generate a new API key and paste it in the script as the input.
+
+Once you have ran the script, the .env file will be set up, and there will be a public key generated for the server to use.
+
+> NOTE - Before running the honeypot server, double check the .env file to make sure the details are correct
+
+Now that the environment has been set up, run the honeypot:
+
+```bash
+docker compose up -d
+```
+
+Once the server is up and running, test an SSH connection with it:
+
+```bash
+ssh test@<server_ip_address>
+```
+
+It should return the normal SSH outputs, and when you try to login with a password or a key, the server will log the attempt and you can find the logs in the ```logs``` directory.
+
+> NOTE - For testing the honeypot server, if you don't want your IP address to appear in the logs, use the proxychains binary in Linux, which anonymises your IP address via proxy servers
+
+For example, logging in as user 'test' with the password 'password':
+
+<p align="center">
+<img src="../../images/ssh_test.png" alt="Testing honeypot with Kali Linux" height=230px>
+</p>
+
+<p align="center">
+<img src="../../images/honeypot_log_test.png" alt="Testing honeypot logs" height=50px>
+</p>
+
+The strings 'dGVzda==' and 'cGFzc3dvcmQ=' logged in the honeypot are the base 64 encoded versions of 'test' and 'password'.
 
 ## Sections
 
