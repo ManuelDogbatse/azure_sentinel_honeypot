@@ -2,13 +2,13 @@
 
 ### Table of Contents
 
-[Setting up the virtual machine](#setting-up-the-virtual-machine)
+[Setting up the Virtual Machine](#setting-up-the-virtual-machine)
 
 [Setting up the Log Analytics workspace](#setting-up-the-log-analytics-workspace)
 
 [Sections](#sections)
 
-## Setting up the virtual machine
+## Setting up the Virtual Machine
 
 Before setting up the virtual machine, you need to create a resource group to put all of the resources you will use in this project. Go to the search bar at the top and search 'Resource groups'. Then click on the first option that appears.
 
@@ -161,4 +161,4 @@ Then select 'Create' to create a new instance for the lab. Select 'law-honeypot'
 
 #### Home Page: [Azure Sentinel Honeypot](../../)
 
-#### Next Section: [...](...)
+#### Next Section: [Setting up the Honeypot](../honeypot_setup/)
