@@ -6,6 +6,8 @@
 
 [Creating the Data Collection Endpoint](#creating-the-data-collection-endpoint)
 
+[Creating the Data Collection Rules](#creating-the-data-collection-rules)
+
 [Sections](#sections)
 
 ## Creating custom logs
@@ -62,8 +64,62 @@ To gather the logs from the virtual machine, you need to create a data collectio
 In Azure, search 'monitor' and select the 'Monitor' option:
 
 <p align="center">
-<img src="../../images/monitor_option.png" alt="Monitor option" height=90px>
+<img src="../../images/monitor_option.png" alt="Monitor option" height=80px>
 </p>
+
+Then go to the 'Data Collection Endpoints' tab under 'Settings', and click 'Create'. Give the endpoint the name 'dce-honeypot', choose the 'rg-honeypot' resource group, and change the region to the region you have been using thus far.
+
+<p align="center">
+<img src="../../images/dce_details.png" alt="Data collection endpoint details" height=200px>
+</p>
+
+Click 'Review + create' and 'Create' once the validation has passed.
+
+## Creating the Data Collection Rules
+
+In the 'Monitor' page, go to the 'Data Collection Rules' tab under 'Settings' and click 'Create'.
+
+Set the rule name to 'dcr-password-honeypot', set the resource group to 'rg-honeypot', set the region to your region, set the platform type to 'Linux' and select the 'dce-honeypot' DCE you previously created.
+
+<p align="center">
+<img src="../../images/dcr_basics.png" alt="Data collection rule basics" height=320px>
+</p>
+
+Click 'Next' and check the 'Enable Data Collection Endpoints' checkmark. Then click 'Add resources', select the 'vm-honeypot' virtual machine and click 'Apply'. Then for the 'Data collection endpoint' option, select 'dce-honeypot' and click 'Next'.
+
+<p align="center">
+<img src="../../images/dcr_resources.png" alt="Data collection rule resources" height=180px>
+</p>
+
+
+Click 'Add data source' and select 'Custom Text Logs' as the data source type. Then enter the same path you used to create the custom log for the custom password logs as the file pattern. Enter the name of the custom password log (```SSH_PASSWORD_LOGS_CL```) and click 'Next'.
+
+<p align="center">
+<img src="../../images/dcr_data_source.png" alt="Data collection rule data source" height=210px>
+</p>
+
+Select 'Azure Monitor Logs' as the destination type, choose your subscription and 
+select the 'law-honeypot' LAW and click 'Add data source'.
+
+<p align="center">
+<img src="../../images/dcr_destination.png" alt="Data collection rule destination" height=70px>
+</p>
+
+Click 'Review + create' and click 'Create' once the validation has passed.
+
+Repeat the steps for creating a data collection rule, but this time for the public key logs. Name the rule 'dcr-pubkey-honeypot':
+
+<p align="center">
+<img src="../../images/dcr_pubkey_basics.png" alt="Data collection rule basics for public key logs" height=280px>
+</p>
+
+In the data source options, set the file pattern to the public key log file, and set the table name to ```SSH_PUBKEY_LOGS_CL```
+
+<p align="center">
+<img src="../../images/dcr_pubkey_data_source.png" alt="Data collection rule data source for public key logs" height=190px>
+</p>
+
+Now the logs will be collected and stored in the log analytics workspace. It will take about 10 minutes for the logs to show up in queries.
 
 ## Sections
 
