@@ -121,10 +121,18 @@ In the data source options, set the file pattern to the public key log file, and
 
 Now the logs will be collected and stored in the log analytics workspace. It will take about 10 minutes for the logs to show up in queries.
 
+To see the logs from the honeypot, go to the 'Log Analytics workspaces' page, select 'law-honeypot' and go to the 'Logs' tab.
+
+Close the modal, enter either 'SSH_PASSWORD_LOGS_CL' or 'SSH_PUBKEY_LOGS_CL' in the query text field, and click 'Run'. The results will show all the logs created by the honeypot after the data collection endpoint and rules were made.
+
+<p align="center">
+<img src="../../images/query_password.png" alt="Query for password logs" height=400px>
+</p>
+
 ## Sections
 
 #### Home Page: [Azure Sentinel Honeypot](../../)
 
 #### Previous Section: [Setting up the Honeypot](../honeypot_setup/)
 
-#### Next Section: [Collecting logs from Virtual Machine](..)
+#### Next Section: [Monitoring logs with Microsoft Sentinel](../sentinel/)

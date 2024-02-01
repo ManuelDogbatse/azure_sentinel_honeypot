@@ -39,3 +39,7 @@ Setting up the honeypot within the virtual machine
 ### [Collecting logs from Virtual Machine](./contents/log_collection)
 
 Adding the data collection endpoint and rules to collect the logs from the virtual machine and store them in the log analytics workspace
+
+### [Monitoring logs with Microsoft Sentinel](./contents/sentinel)
+
+Monitoring logs from honeypot using Azure's SIEM tool, Microsoft Sentinel
